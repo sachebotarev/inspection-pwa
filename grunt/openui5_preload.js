@@ -4,7 +4,18 @@ module.exports =  function(grunt, config) {
             options: {
                 resources: {
                     cwd: "<%= dir.src %>",
-                    prefix: "<%= project.prefix %>"
+                    prefix: "<%= project.prefix %>",
+                    src: [
+                        "Component.js",
+                        "**/*.js",
+                        "**/*.fragment.xml",
+                        "**/*.view.xml",
+                        "**/*.properties",
+                        "manifest.json",
+                        "!Component-preload.js",
+                        "!test/**",
+                        "!openui5/**"
+                    ]
                 },
                 dest:  "<%= dir.dist %>"
             },

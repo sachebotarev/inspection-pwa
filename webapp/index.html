@@ -5,28 +5,59 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta charset="UTF-8">
 
-		<title>inspection-web</title>
+		<title>inspection</title>
+		<!-- PWA related meta tags -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- PWA manifest -->
+		<link rel="manifest" href="./manifest.json">
+
+		<!-- Add to home screen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="Inspection PWA">
+		<link rel="apple-touch-icon" href="icons/icon-152x152.png">
+
+		<!-- Windows related -->
+		<meta name="msapplication-TileImage" content="icons/icon-144x144.png">
+		<meta name="msapplication-TileColor" content="#386CC1">
+		<meta name="theme-color" content="#164391">
 
 		<script id="sap-ui-bootstrap"
 			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
 			data-sap-ui-libs="sap.m, sap.ui.layout"
+			data-sap-ui-preload="async"
 			data-sap-ui-theme="sap_belize"
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-resourceroots='{"mobui.inspection": "./inspection"}'>
 		</script>
 
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-
 		<script src="register-worker.js"></script>
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "mobui.inspection"
-					})
-				}).placeAt("content");
+				sap.ui.require([
+					"sap/m/Shell",
+					"sap/ui/core/ComponentContainer"
+				],function(Shell,ComponentContainer){
+					var oComponentContainer = new ComponentContainer({
+						height: "100%"
+					});
+
+					var oComponent = sap.ui.component({
+						async: true,
+						manifestFirst: true,
+						name: "mobui.inspection"
+					}).then(function(oComponent){
+						oComponentContainer.setComponent(oComponent);
+					});
+
+					var oShell =  new Shell({
+						showLogout: false,
+						app: oComponentContainer
+					}).placeAt("content");
+
+				})
 			});
 		</script>
 	</head>

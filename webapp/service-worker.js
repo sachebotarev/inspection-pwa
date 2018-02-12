@@ -1,19 +1,31 @@
 (function(){
     'use strict';
 
-const CACHE_NAME = 'pwa-ui5-todo-v1.0.07';
-const RESOURCES_TO_PRELOAD = [
+const CACHE_NAME = 'inspection-pwa';
+//const COMPONENT_PATH = "inspection";
+const CDN_BASE = 'https://openui5.hana.ondemand.com/resources/';
+
+var resourcesToCache = [
 	'index.html',
-	'logo.svg',
+	//'logo.svg',
 	'register-worker.js',
-	'todo-app.js',
 	'manifest.json'
+	//`${COMPONENT_PATH}/Component-Preload.js`
 ]
+
+resourcesToCache = resourcesToCache.concat([
+	`${CDN_BASE}sap-ui-core.js`,
+	`${CDN_BASE}sap/ui/core/library-preload.js`,
+	`${CDN_BASE}sap/ui/core/themes/sap_belize_plus/library.css`,
+	`${CDN_BASE}sap/ui/core/themes/base/fonts/SAP-icons.woff2`,
+	`${CDN_BASE}sap/m/library-preload.js`,
+	`${CDN_BASE}sap/m/themes/sap_belize_plus/library.css`
+]);
 
 self.addEventListener('install', function (event) {
 	event.waitUntil(
 		caches.open(CACHE_NAME).then(function (cache) {
-			return cache.addAll(RESOURCES_TO_PRELOAD);
+			return cache.addAll(resourcesToCache);
 		})
 	);
 });
