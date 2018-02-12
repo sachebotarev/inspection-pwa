@@ -1,0 +1,15 @@
+{
+    "name": "Inspection rounds",
+    "short_name": "Inspection",
+    "icon":[
+        {
+            "src":"icon/icon-128x128.png",
+            "sizes":"128x128",
+            "type": "inamge/png"
+        }
+    ],
+    "start_url":"index.html",
+    "display":"standalone",
+    "background_color": "#244C7C",
+    "theme_color": "#FFFFFF"
+}

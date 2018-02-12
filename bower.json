@@ -1,0 +1,30 @@
+{
+  "name": "inspection-pwa",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mobui/inspection-pwa#readme",
+  "authors": [
+    "Sergey A. Chebotarev"
+  ],
+  "description": "PWA Application for inspection rounds",
+  "main": "webapp/index.html",
+  "keywords": [
+    "openui5",
+    "sapui5",
+    "html5"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "openui5-sap.ui.core": "openui5/packaged-sap.ui.core",  
+    "openui5-sap.m": "openui5/packaged-sap.m", 
+    "openui5-sap.ui.layout":"openui5/packaged-sap.ui.layout",
+    "openui5-themelib_sap_belize": "openui5/packaged-themelib_sap_belize"  
+  }
+}
