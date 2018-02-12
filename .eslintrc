@@ -1,6 +1,7 @@
 {
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true 
   },
   "globals": {
     "sap": true,
@@ -23,7 +24,6 @@
     "no-nested-ternary": 2,
     "no-unused-vars": [2, {"vars":"all", "args":"none"}],
     "radix": 2,
-   // "space-after-keywords": [2, "always"],
     "space-unary-ops": 2,
     "wrap-iife": [2, "any"],
     "openui5/line-endings": 2,
